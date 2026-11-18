@@ -1,0 +1,223 @@
+/* Profile page (Step 04). Colours come from the variables in style.css only. */
+
+.profile-page {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2rem 1.5rem 3rem;
+    display: grid;
+    gap: 1.5rem;
+}
+
+.profile-card {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    background: var(--paper-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+}
+
+.profile-avatar {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background: var(--accent);
+    color: var(--paper);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.profile-name { font-family: var(--font-display); font-size: 1.6rem; color: var(--ink); }
+.profile-email { color: var(--ink-muted); font-size: 0.95rem; }
+.profile-since { color: var(--ink-faint); font-size: 0.85rem; margin-top: 0.25rem; }
+
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.stat-tile {
+    background: var(--paper-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.stat-label { color: var(--ink-muted); font-size: 0.85rem; }
+.stat-value { font-family: var(--font-display); font-size: 1.8rem; color: var(--ink); }
+
+.profile-panel {
+    background: var(--paper-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+}
+
+.panel-title { font-family: var(--font-display); font-size: 1.25rem; margin-bottom: 1rem; color: var(--ink); }
+
+.table-wrap { overflow-x: auto; }
+
+.tx-table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+
+.tx-table th {
+    text-align: left;
+    color: var(--ink-muted);
+    font-weight: 500;
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.tx-table td {
+    padding: 0.7rem 0.75rem;
+    border-bottom: 1px solid var(--border-soft);
+    color: var(--ink-soft);
+}
+
+.tx-table tr:last-child td { border-bottom: none; }
+
+.tx-table .col-amount { text-align: right; font-variant-numeric: tabular-nums; }
+
+.badge {
+    display: inline-block;
+    padding: 0.2rem 0.65rem;
+    border-radius: var(--radius-lg);
+    font-size: 0.78rem;
+    font-weight: 500;
+    background: var(--paper-warm);
+    color: var(--ink-soft);
+}
+
+.badge-food { background: var(--accent-light); color: var(--accent); }
+.badge-transport { background: var(--accent-2-light); color: var(--accent-2); }
+.badge-bills { background: var(--danger-light); color: var(--danger); }
+.badge-health { background: var(--accent-light); color: var(--ink-soft); }
+.badge-entertainment { background: var(--accent-2-light); color: var(--ink-soft); }
+.badge-shopping { background: var(--paper-warm); color: var(--accent); }
+.badge-other { background: var(--paper-warm); color: var(--ink-muted); }
+
+.breakdown { list-style: none; display: grid; gap: 0.85rem; }
+
+.breakdown-row {
+    display: grid;
+    grid-template-columns: 8rem 1fr 6rem 3rem;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.92rem;
+}
+
+.breakdown-name { color: var(--ink-soft); }
+.breakdown-amount { text-align: right; font-variant-numeric: tabular-nums; color: var(--ink); }
+.breakdown-percent { text-align: right; color: var(--ink-muted); }
+
+.breakdown-bar {
+    width: 100%;
+    height: 0.6rem;
+    appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    border-radius: var(--radius-lg);
+    background: var(--paper-warm);
+    overflow: hidden;
+}
+
+.breakdown-bar::-webkit-progress-bar { background: var(--paper-warm); }
+.breakdown-bar::-webkit-progress-value { background: var(--accent); border-radius: var(--radius-lg); }
+.breakdown-bar::-moz-progress-bar { background: var(--accent); border-radius: var(--radius-lg); }
+
+@media (max-width: 640px) {
+    .stats-row { grid-template-columns: 1fr; }
+    .profile-card { flex-direction: column; text-align: center; }
+    .breakdown-row { grid-template-columns: 1fr 5rem 2.5rem; }
+    .breakdown-bar { grid-column: 1 / -1; order: 5; }
+}
+
+.empty-note { color: var(--ink-muted); font-size: 0.92rem; }
+
+.panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.panel-header .panel-title { margin-bottom: 0; }
+
+.btn-add {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 0.45rem 1.1rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+.btn-add:hover { background: var(--accent); }
+
+.link-edit { color: var(--accent); font-weight: 500; }
+.link-edit:hover { text-decoration: underline; }
+
+.filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    background: var(--paper-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 1rem 1.5rem;
+}
+
+.filter-presets { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+.filter-btn {
+    background: var(--paper);
+    color: var(--ink-soft);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 0.4rem 0.9rem;
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+.filter-btn.filter-active {
+    background: var(--accent);
+    color: var(--paper);
+    border-color: var(--accent);
+}
+
+.filter-custom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.6rem;
+    border: 1px solid transparent;
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
+    color: var(--ink-muted);
+}
+
+.filter-custom.filter-active { border-color: var(--accent); background: var(--accent-light); }
+
+.filter-custom .form-input { width: auto; padding: 0.35rem 0.6rem; }
+
+@media (max-width: 640px) {
+    .filter-bar { flex-direction: column; align-items: stretch; }
+}
