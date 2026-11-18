@@ -8,8 +8,7 @@ expense-tracker/
 │   └── db.py               ← stub file, functions defined but body is `pass`
 ├── static/
 │   ├── css/
-│   └── js/
-├── templates/
+│   └── js
 │   ├── base.html
 │   ├── landing.html
 │   ├── login.html
